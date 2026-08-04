@@ -88,7 +88,7 @@ export const AIChat = () => {
           className="p-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-amber-500 hover:from-blue-700 hover:to-amber-600 text-white rounded-full shadow-2xl shadow-blue-500/40 flex items-center space-x-2 border-2 border-white/20"
         >
           <Sparkles className="w-6 h-6 text-amber-300 animate-spin-slow" />
-          <span className="font-bold text-sm hidden sm:inline pr-1">Ask TravelAI</span>
+          <span className="font-bold text-sm hidden sm:inline pr-1">Ask VoyageCraft</span>
         </motion.button>
       )}
 
@@ -98,18 +98,18 @@ export const AIChat = () => {
           <motion.div
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 40, scale: 0.95 }}
-            className="w-[92vw] sm:w-[420px] h-[550px] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden backdrop-blur-2xl"
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            className="w-full sm:w-96 h-[540px] bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-3xl shadow-2xl flex flex-col justify-between overflow-hidden"
           >
             
             {/* Header */}
             <div className="p-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-amber-500 text-white flex items-center justify-between shadow-md">
-              <div className="flex items-center space-x-3">
-                <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-amber-300" />
+              <div className="flex items-center space-x-2.5">
+                <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center font-bold">
+                  🤖
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-sm tracking-wide">TravelAI Assistant 🇮🇳</h3>
+                  <h3 className="font-extrabold text-sm tracking-wide">VoyageCraft AI 🇮🇳</h3>
                   <span className="text-[10px] text-blue-100 flex items-center space-x-1">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block" />
                     <span>Gemini AI Engine Active</span>

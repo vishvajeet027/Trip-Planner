@@ -68,10 +68,10 @@ export const Navbar = () => {
               <Compass className="w-5 h-5 animate-spin-slow" />
             </div>
             <div>
-              <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-600 via-indigo-600 to-amber-500 bg-clip-text text-transparent">
-                TravelAI
+              <span className="text-xl font-black tracking-tight bg-gradient-to-r from-blue-600 via-indigo-600 to-amber-500 bg-clip-text text-transparent">
+                VoyageCraft <span className="text-amber-500">AI</span>
               </span>
-              <span className="text-[10px] uppercase tracking-widest text-amber-500 font-semibold block -mt-1">
+              <span className="text-[10px] uppercase tracking-widest text-amber-500 font-bold block -mt-1">
                 India 🇮🇳
               </span>
             </div>

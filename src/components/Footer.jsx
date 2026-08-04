@@ -14,8 +14,8 @@ export const Footer = () => {
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-amber-500 flex items-center justify-center text-white font-bold text-lg shadow-md">
                 <Compass className="w-6 h-6" />
               </div>
-              <span className="text-2xl font-bold text-white tracking-tight">
-                TravelAI <span className="text-amber-400">India</span>
+              <span className="text-2xl font-black text-white tracking-tight">
+                VoyageCraft <span className="text-amber-400">AI</span>
               </span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
