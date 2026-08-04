@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 
 export const PackageCard = ({ pkg, onBook }) => {
   const { toggleWishlist, isWishlisted } = useWishlist();
-  const { isAdmin } = useAuth();
   const wishlisted = isWishlisted(pkg.id, 'package');
 
   return (

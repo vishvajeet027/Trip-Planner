@@ -1,18 +1,38 @@
 import React from 'react';
-import { MapPin } from 'lucide-react';
+import { MapPin, ExternalLink } from 'lucide-react';
 
-export const MapWidget = ({ location = 'Jaipur, Rajasthan', title = 'Interactive Map' }) => {
-  const mapSrc = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.1102!2d75.8085!3d26.8953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db42125555555%3A0x6000000000000000!2s${encodeURIComponent(location)}!5e0!3m2!1sen!2sin!4v1700000000000`;
+export const MapWidget = ({ location = 'Jaipur, Rajasthan', title = 'Interactive Real-World Map' }) => {
+  const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(location)}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+  const openMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`;
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-xl space-y-3">
-      <div className="flex items-center space-x-2">
-        <MapPin className="w-5 h-5 text-amber-500" />
-        <h4 className="font-bold text-slate-900 dark:text-white text-sm">
-          {title} - {location}
-        </h4>
+    <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-xl space-y-4">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center space-x-2.5">
+          <div className="p-2 rounded-xl bg-amber-500/10 text-amber-500 font-bold">
+            <MapPin className="w-5 h-5" />
+          </div>
+          <div>
+            <h4 className="font-extrabold text-slate-900 dark:text-white text-base">
+              {title}
+            </h4>
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">📍 {location}</p>
+          </div>
+        </div>
+
+        <a
+          href={openMapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-3.5 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-blue-600 dark:text-blue-400 rounded-xl text-xs font-bold transition flex items-center space-x-1.5"
+        >
+          <span>Open in Google Maps</span>
+          <ExternalLink className="w-3.5 h-3.5" />
+        </a>
       </div>
-      <div className="w-full h-64 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700">
+
+      {/* Large Full Width Map Container */}
+      <div className="w-full h-96 sm:h-[420px] rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/80 shadow-inner">
         <iframe
           title={location}
           src={mapSrc}
@@ -21,6 +41,7 @@ export const MapWidget = ({ location = 'Jaipur, Rajasthan', title = 'Interactive
           style={{ border: 0 }}
           allowFullScreen=""
           loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
         />
       </div>
     </div>

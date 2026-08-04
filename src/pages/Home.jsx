@@ -24,9 +24,9 @@ export const Home = () => {
           <img
             src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=2000&q=80"
             alt="Taj Mahal India"
-            className="w-full h-full object-cover brightness-[0.4] scale-105 transform animate-pulse-slow"
+            className="w-full h-full object-cover brightness-[0.8] scale-105 transform"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-slate-950/40 to-slate-950/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/30 to-slate-950/40" />
         </div>
 
         {/* Hero Content */}

@@ -32,7 +32,7 @@ export default function App() {
         <TripProvider>
           <Router>
             <div className="min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
-              
+
               {/* Sticky Navbar */}
               <Navbar />
 

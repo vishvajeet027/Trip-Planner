@@ -31,11 +31,12 @@ export const Flights = () => {
   // Filter flights matching Indian routes
   const availableFlights = useMemo(() => {
     return flightsData.filter(flight => {
+      const matchesFrom = !fromCity || flight.fromCity.toLowerCase().includes(fromCity.toLowerCase().split(' ')[0]);
       const matchesTo = !toCity || flight.toCity.toLowerCase().includes(toCity.toLowerCase().split(' ')[0]);
       const matchesAirline = !selectedAirline || flight.airline === selectedAirline;
-      return matchesTo && matchesAirline;
+      return (matchesFrom || matchesTo) && matchesAirline;
     });
-  }, [toCity, selectedAirline]);
+  }, [fromCity, toCity, selectedAirline]);
 
   const handleConfirmFlight = (e) => {
     e.preventDefault();

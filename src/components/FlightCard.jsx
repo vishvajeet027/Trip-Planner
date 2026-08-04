@@ -3,7 +3,6 @@ import { Plane, Clock, Luggage, ShieldCheck, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const FlightCard = ({ flight, onBook }) => {
-  const { isAdmin } = useAuth();
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
