@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Details - TravelAI India</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <i class="fas fa-brain"></i>
+        <span>Travel<span class="text-gradient">AI</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="/pages/ai-planner.html" class="nav-link">AI Planner</a></li>
+        <li><a href="/pages/explore.html" class="nav-link">Explore</a></li>
+        <li><a href="/pages/stay.html" class="nav-link">Stay</a></li>
+        <li><a href="/pages/my-trips.html" class="nav-link">My Trips</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="/pages/ai-planner.html" class="btn btn-primary">
+          <i class="fas fa-sparkles"></i> Launch AI Planner
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BANNER HEADER -->
+  <div id="details-banner" style="height: 360px; background-size: cover; background-position: center; position: relative;"></div>
+
+  <main style="padding: 2rem 0 5rem; margin-top: -100px; position: relative; z-index: 10;">
+    <div class="container" id="details-content"></div>
+  </main>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/recommendations.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flights across India | TravelAI India</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+
+  <div id="app-header"></div>
+
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    
+    <div class="mb-8">
+      <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">Domestic Routes</span>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">Find & Book Flights</h1>
+    </div>
+
+    <!-- Flight Search Box -->
+    <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-xl border border-slate-200/80 dark:border-slate-800 mb-8 space-y-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-500 mb-1">From City</label>
+          <input type="text" id="flight-from" placeholder="e.g. Delhi, Mumbai..." class="w-full p-3 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-500 mb-1">To City</label>
+          <input type="text" id="flight-to" placeholder="e.g. Goa, Jaipur..." class="w-full p-3 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold focus:outline-none" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-500 mb-1">Travel Date</label>
+          <input type="date" id="flight-date" class="w-full p-3 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-semibold focus:outline-none text-slate-900 dark:text-white" />
+        </div>
+      </div>
+
+      <button id="search-flights-btn" class="w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-extrabold rounded-2xl shadow-lg hover:opacity-95 transition-all">
+        Search Flights
+      </button>
+    </div>
+
+    <!-- Flights List -->
+    <div id="flights-list" class="space-y-4">
+      <!-- Rendered via JS -->
+    </div>
+
+  </main>
+
+  <div id="app-footer"></div>
+  <div id="app-ai-chat"></div>
+
+  <script type="module">
+    import { renderHeader, renderFooter, renderAIChatWidget, initTheme, showToast } from '/js/app.js';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      renderHeader('flights');
+      renderFooter();
+      renderAIChatWidget();
+      initTheme();
+
+      try {
+        const res = await fetch('/api/flights');
+        const flights = await res.json();
+
+        const render = (items) => {
+          const container = document.getElementById('flights-list');
+          if (!container) return;
+
+          if (items.length === 0) {
+            container.innerHTML = `
+              <div class="text-center py-12 space-y-2 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
+                <i data-lucide="plane-off" class="w-10 h-10 text-slate-400 mx-auto"></i>
+                <p class="text-xs font-bold text-slate-600 dark:text-slate-400">No flights matched your route query.</p>
+              </div>
+            `;
+            if (window.lucide) window.lucide.createIcons();
+            return;
+          }
+
+          container.innerHTML = items.map(f => `
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row items-center justify-between gap-6">
+              
+              <div class="flex items-center gap-4 w-full md:w-auto">
+                <div class="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/50 flex items-center justify-center text-blue-600 flex-shrink-0">
+                  <i data-lucide="plane" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h4 class="font-extrabold text-slate-900 dark:text-white text-base">${f.airline || 'Air India'}</h4>
+                  <span class="text-xs text-slate-400">${f.flightNumber || 'AI-402'}</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-8 text-center w-full md:w-auto justify-between md:justify-center">
+                <div>
+                  <span class="text-lg font-black text-slate-900 dark:text-white">${f.departureTime || '08:00 AM'}</span>
+                  <span class="text-[11px] font-bold text-slate-500 block">${f.from}</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <span class="text-[10px] text-slate-400 font-semibold">${f.duration || '2h 15m'}</span>
+                  <div class="w-24 h-0.5 bg-slate-300 dark:bg-slate-700 relative my-1">
+                    <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-blue-600"></div>
+                  </div>
+                  <span class="text-[10px] text-emerald-500 font-bold">${f.stops || 'Non-stop'}</span>
+                </div>
+                <div>
+                  <span class="text-lg font-black text-slate-900 dark:text-white">${f.arrivalTime || '10:15 AM'}</span>
+                  <span class="text-[11px] font-bold text-slate-500 block">${f.to}</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end border-t md:border-t-0 pt-3 md:pt-0 border-slate-100 dark:border-slate-800">
+                <div class="text-right">
+                  <span class="text-xl font-black text-slate-900 dark:text-white">₹${f.price}</span>
+                  <span class="text-[10px] text-slate-400 block">per passenger</span>
+                </div>
+                <button class="book-flight-btn px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-extrabold rounded-xl shadow-md transition-colors" data-flight="${f.airline} (${f.from} -> ${f.to})">
+                  Book Seat
+                </button>
+              </div>
+
+            </div>
+          `).join('');
+
+          if (window.lucide) window.lucide.createIcons();
+
+          container.querySelectorAll('.book-flight-btn').forEach(b => {
+            b.addEventListener('click', () => {
+              const name = b.getAttribute('data-flight');
+              showToast(`Flight ticket request created for ${name}!`, 'success');
+            });
+          });
+        };
+
+        render(flights);
+
+        document.getElementById('search-flights-btn').addEventListener('click', () => {
+          const fromVal = document.getElementById('flight-from').value.toLowerCase().trim();
+          const toVal = document.getElementById('flight-to').value.toLowerCase().trim();
+
+          const filtered = flights.filter(f => 
+            (!fromVal || f.from.toLowerCase().includes(fromVal)) &&
+            (!toVal || f.to.toLowerCase().includes(toVal))
+          );
+          render(filtered);
+        });
+
+      } catch (err) {
+        console.error('Error fetching flights:', err);
+      }
+    });
+  </script>
+</body>
+</html>

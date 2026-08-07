@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Destinations - TravelAI India</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <i class="fas fa-brain"></i>
+        <span>Travel<span class="text-gradient">AI</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="/pages/ai-planner.html" class="nav-link">AI Planner</a></li>
+        <li><a href="/pages/explore.html" class="nav-link active">Explore</a></li>
+        <li><a href="/pages/stay.html" class="nav-link">Stay</a></li>
+        <li><a href="/pages/my-trips.html" class="nav-link">My Trips</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="/pages/ai-planner.html" class="btn btn-primary">
+          <i class="fas fa-sparkles"></i> Launch AI Planner
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main style="padding: 3rem 0 5rem;">
+    <div class="container">
+      
+      <!-- HEADER -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div>
+          <span class="ai-badge" style="margin-bottom: 0.5rem;"><i class="fas fa-compass"></i> Indian Travel Catalog</span>
+          <h1 style="font-size: 2.4rem;">Explore Destinations</h1>
+          <p style="color: var(--text-muted);">Discover 20+ handpicked Indian destinations categorized by interests & budget.</p>
+        </div>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <input type="text" id="explore-search" placeholder="Search Goa, Jaipur..." style="padding: 0.65rem 1rem; background: rgba(19,24,40,0.8); border: 1px solid var(--border-glass); color: #fff; border-radius: 8px; font-size: 0.9rem; min-width: 220px;">
+          
+          <select id="explore-sort" style="padding: 0.65rem 1rem; background: rgba(19,24,40,0.8); border: 1px solid var(--border-glass); color: #fff; border-radius: 8px; font-size: 0.9rem;">
+            <option value="rating">Sort by Rating</option>
+            <option value="budget-low">Budget: Low to High</option>
+            <option value="budget-high">Budget: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- FILTER PILLS -->
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem;">
+        <button class="btn btn-outline filter-pill active" data-type="ALL" style="padding: 0.4rem 1rem; font-size: 0.85rem;">All Types</button>
+        <button class="btn btn-outline filter-pill" data-type="Adventure" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Adventure</button>
+        <button class="btn btn-outline filter-pill" data-type="Relaxation" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Relaxation</button>
+        <button class="btn btn-outline filter-pill" data-type="Cultural" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Cultural</button>
+        <button class="btn btn-outline filter-pill" data-type="Nature" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Nature</button>
+        <button class="btn btn-outline filter-pill" data-type="Spiritual" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Spiritual</button>
+      </div>
+
+      <!-- DESTINATION CARDS GRID -->
+      <div id="explore-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;"></div>
+
+    </div>
+  </main>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/explore.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | TravelAI India</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+
+  <div id="app-header"></div>
+
+  <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full space-y-12">
+    
+    <div class="text-center space-y-4 max-w-2xl mx-auto">
+      <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">Our Mission</span>
+      <h1 class="text-4xl font-black text-slate-900 dark:text-white">Empowering Travel Across India with Artificial Intelligence</h1>
+      <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+        TravelAI India brings smart, AI-driven trip recommendations, personalized itineraries, and instant bookings for domestic travelers and international guests alike.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-3">
+        <div class="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 flex items-center justify-center">
+          <i data-lucide="sparkles" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-extrabold text-slate-900 dark:text-white text-lg">AI Smart Itineraries</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">Generative AI algorithms evaluate route distance, optimal stay times, and local weather patterns for seamless trips.</p>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-3">
+        <div class="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 flex items-center justify-center">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-extrabold text-slate-900 dark:text-white text-lg">Verified Stays</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">Handpicked boutique hotels, luxury palace resorts, and cozy homestays verified across major Indian states.</p>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-3">
+        <div class="w-12 h-12 rounded-2xl bg-violet-50 dark:bg-violet-950/60 text-violet-600 flex items-center justify-center">
+          <i data-lucide="headphones" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-extrabold text-slate-900 dark:text-white text-lg">24/7 AI Concierge</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">Ask our floating AI assistant any question in real time during your travels for immediate assistance.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="app-footer"></div>
+  <div id="app-ai-chat"></div>
+
+  <script type="module">
+    import { renderHeader, renderFooter, renderAIChatWidget, initTheme } from '/js/app.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderHeader('about');
+      renderFooter();
+      renderAIChatWidget();
+      initTheme();
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

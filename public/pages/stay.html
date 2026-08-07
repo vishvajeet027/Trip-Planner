@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stay & Hotels - TravelAI India</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <i class="fas fa-brain"></i>
+        <span>Travel<span class="text-gradient">AI</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="/pages/ai-planner.html" class="nav-link">AI Planner</a></li>
+        <li><a href="/pages/explore.html" class="nav-link">Explore</a></li>
+        <li><a href="/pages/stay.html" class="nav-link active">Stay</a></li>
+        <li><a href="/pages/my-trips.html" class="nav-link">My Trips</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="/pages/ai-planner.html" class="btn btn-primary">
+          <i class="fas fa-sparkles"></i> Launch AI Planner
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main style="padding: 3rem 0 5rem;">
+    <div class="container">
+      
+      <!-- HEADER & CITY SELECTOR -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem;">
+        <div>
+          <span class="ai-badge" style="margin-bottom: 0.5rem;"><i class="fas fa-hotel"></i> Indian Stays & Resorts</span>
+          <h1 style="font-size: 2.4rem;">Select City Stays</h1>
+          <p style="color: var(--text-muted);">Explore handpicked hotels scored dynamically by AI compatibility.</p>
+        </div>
+
+        <div>
+          <label style="font-size: 0.85rem; color: var(--text-subtle); display: block; margin-bottom: 0.4rem;">Select Indian Destination City:</label>
+          <select id="stay-city-select" style="padding: 0.75rem 1.25rem; background: rgba(19,24,40,0.9); border: 1px solid var(--border-accent); color: #fff; border-radius: 10px; font-weight: 600; min-width: 220px; font-size: 1rem;">
+          </select>
+        </div>
+      </div>
+
+      <!-- HOTELS GRID -->
+      <div id="stay-hotels-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;" class="stay-grid"></div>
+
+    </div>
+  </main>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/ai-engine.js"></script>
+  <script src="/js/hotels.js"></script>
+</body>
+</html>

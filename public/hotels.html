@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotels & Resorts in India | TravelAI India</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+
+  <div id="app-header"></div>
+
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    
+    <!-- Title & Search Bar -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+      <div>
+        <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">Accommodations</span>
+        <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">Hotels & Luxury Resorts</h1>
+      </div>
+
+      <!-- Filters & Search -->
+      <div class="flex items-center gap-3 flex-wrap">
+        <input type="text" id="hotel-search-input" placeholder="Search by hotel or city name..." class="px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl text-xs font-semibold text-slate-900 dark:text-white focus:outline-none w-64" />
+        
+        <select id="hotel-price-filter" class="px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl text-xs font-semibold text-slate-900 dark:text-white focus:outline-none">
+          <option value="all">All Prices</option>
+          <option value="budget">Under ₹4,000 / night</option>
+          <option value="mid">₹4,000 - ₹10,000 / night</option>
+          <option value="luxury">Above ₹10,000 / night</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Hotels Grid -->
+    <div id="hotels-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Rendered via JS -->
+    </div>
+
+  </main>
+
+  <div id="app-footer"></div>
+  <div id="app-ai-chat"></div>
+
+  <script type="module">
+    import { renderHeader, renderFooter, renderAIChatWidget, initTheme, toggleWishlist, isInWishlist, showToast } from '/js/app.js';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      renderHeader('hotels');
+      renderFooter();
+      renderAIChatWidget();
+      initTheme();
+
+      // Check URL search params
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchParam = urlParams.get('search') || urlParams.get('city') || '';
+
+      const searchInput = document.getElementById('hotel-search-input');
+      if (searchParam && searchInput) {
+        searchInput.value = searchParam;
+      }
+
+      try {
+        const res = await fetch('/api/hotels');
+        const hotels = await res.json();
+
+        const filterAndRender = () => {
+          const query = searchInput.value.toLowerCase().trim();
+          const priceFilter = document.getElementById('hotel-price-filter').value;
+
+          let filtered = hotels.filter(h => 
+            h.name.toLowerCase().includes(query) || 
+            h.location.toLowerCase().includes(query) ||
+            h.city?.toLowerCase().includes(query)
+          );
+
+          if (priceFilter === 'budget') filtered = filtered.filter(h => h.pricePerNight < 4000);
+          if (priceFilter === 'mid') filtered = filtered.filter(h => h.pricePerNight >= 4000 && h.pricePerNight <= 10000);
+          if (priceFilter === 'luxury') filtered = filtered.filter(h => h.pricePerNight > 10000);
+
+          renderHotels(filtered, hotels);
+        };
+
+        filterAndRender();
+
+        searchInput.addEventListener('input', filterAndRender);
+        document.getElementById('hotel-price-filter').addEventListener('change', filterAndRender);
+
+      } catch (err) {
+        console.error('Error fetching hotels:', err);
+      }
+    });
+
+    function renderHotels(hotels, allHotels) {
+      const container = document.getElementById('hotels-grid');
+      if (!container) return;
+
+      if (hotels.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full text-center py-16 space-y-3">
+            <i data-lucide="hotel" class="w-12 h-12 text-slate-400 mx-auto"></i>
+            <h3 class="font-extrabold text-slate-700 dark:text-slate-300 text-lg">No Hotels Found</h3>
+            <p class="text-xs text-slate-500">Try adjusting your search criteria or price filter.</p>
+          </div>
+        `;
+        if (window.lucide) window.lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = hotels.map(hotel => {
+        const inWish = isInWishlist(hotel);
+        return `
+          <div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-800 shadow-md hover:shadow-xl transition-all space-y-4 p-5 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="h-48 rounded-2xl overflow-hidden relative">
+                <img src="${hotel.image}" alt="${hotel.name}" class="w-full h-full object-cover" />
+                <button class="wishlist-toggle-btn absolute top-3 right-3 w-9 h-9 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-rose-500 transition-colors" data-hotel-id="${hotel.id}">
+                  <i data-lucide="heart" class="w-4 h-4 ${inWish ? 'fill-rose-500 text-rose-500' : ''}"></i>
+                </button>
+                <div class="absolute bottom-3 left-3 bg-slate-950/60 backdrop-blur-md px-3 py-1 rounded-full text-white text-[10px] font-bold">
+                  ★ ${hotel.rating} (${hotel.reviewsCount || 120} reviews)
+                </div>
+              </div>
+
+              <div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">${hotel.location}</span>
+                <h3 class="font-extrabold text-slate-900 dark:text-white text-lg leading-snug">${hotel.name}</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">${hotel.description}</p>
+              </div>
+
+              <!-- Amenities Pills -->
+              <div class="flex items-center gap-1.5 flex-wrap pt-1">
+                ${(hotel.amenities || ['Free Wi-Fi', 'Pool', 'Breakfast']).map(a => `
+                  <span class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-lg text-[10px] font-semibold">${a}</span>
+                `).join('')}
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-lg font-black text-slate-900 dark:text-white">₹${hotel.pricePerNight}</span>
+                <span class="text-[10px] text-slate-400"> / night</span>
+              </div>
+              <button class="book-hotel-btn px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-extrabold shadow-md transition-colors" data-hotel-name="${hotel.name}">
+                Reserve Stay
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      if (window.lucide) window.lucide.createIcons();
+
+      // Bind Wishlist Buttons
+      container.querySelectorAll('.wishlist-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const hotelId = btn.getAttribute('data-hotel-id');
+          const hotel = allHotels.find(h => h.id === hotelId);
+          if (hotel) {
+            const added = toggleWishlist(hotel);
+            const icon = btn.querySelector('i');
+            if (added) {
+              icon.classList.add('fill-rose-500', 'text-rose-500');
+            } else {
+              icon.classList.remove('fill-rose-500', 'text-rose-500');
+            }
+          }
+        });
+      });
+
+      // Bind Reserve Button
+      container.querySelectorAll('.book-hotel-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.getAttribute('data-hotel-name');
+          showToast(`Reservation request sent for ${name}! Check your email.`, 'success');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

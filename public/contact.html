@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | TravelAI India</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+
+  <div id="app-header"></div>
+
+  <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full space-y-12">
+    
+    <div class="text-center max-w-2xl mx-auto space-y-3">
+      <span class="text-xs uppercase tracking-widest font-bold text-blue-600 dark:text-blue-400">Get in Touch</span>
+      <h1 class="text-4xl font-black text-slate-900 dark:text-white">Contact TravelAI India</h1>
+      <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm">
+        Have questions about Indian destinations or custom itineraries? Send us a message!
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      
+      <!-- Contact Form -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-200/80 dark:border-slate-800 shadow-xl space-y-6">
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Send Us a Message</h3>
+
+        <form id="contact-form" class="space-y-4 text-xs font-semibold">
+          <div>
+            <label class="text-slate-500 block mb-1">Your Full Name</label>
+            <input type="text" placeholder="e.g. Rohan Sharma" class="w-full p-3 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none" required />
+          </div>
+
+          <div>
+            <label class="text-slate-500 block mb-1">Email Address</label>
+            <input type="email" placeholder="rohan@example.com" class="w-full p-3 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none" required />
+          </div>
+
+          <div>
+            <label class="text-slate-500 block mb-1">Subject</label>
+            <input type="text" placeholder="Itinerary assistance, booking inquiry..." class="w-full p-3 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none" required />
+          </div>
+
+          <div>
+            <label class="text-slate-500 block mb-1">Message</label>
+            <textarea rows="4" placeholder="How can we assist your trip planning?" class="w-full p-3 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none resize-none" required></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-extrabold text-xs shadow-lg transition-colors">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Info Cards -->
+      <div class="space-y-6">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-start gap-4">
+          <div class="w-10 h-10 rounded-2xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">Email Support</h4>
+            <p class="text-xs text-slate-500 mt-1">support@travelai-india.com</p>
+            <p class="text-[11px] text-slate-400">Response time: within 24 hours</p>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-start gap-4">
+          <div class="w-10 h-10 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">Toll Free Helpline</h4>
+            <p class="text-xs text-slate-500 mt-1">+91 1800 123 4567</p>
+            <p class="text-[11px] text-slate-400">Mon - Sat: 9:00 AM - 8:00 PM IST</p>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-start gap-4">
+          <div class="w-10 h-10 rounded-2xl bg-violet-50 dark:bg-violet-950/60 text-violet-600 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="map-pin" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">Headquarters</h4>
+            <p class="text-xs text-slate-500 mt-1">TravelAI India Hub, Connaught Place, New Delhi, 110001</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div id="app-footer"></div>
+  <div id="app-ai-chat"></div>
+
+  <script type="module">
+    import { renderHeader, renderFooter, renderAIChatWidget, initTheme, showToast } from '/js/app.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderHeader('contact');
+      renderFooter();
+      renderAIChatWidget();
+      initTheme();
+
+      document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        showToast('Thank you! Your message has been sent successfully.', 'success');
+        e.target.reset();
+      });
+
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "goa": [
+    { "id": "act-goa-1", "name": "Scuba Diving & Watersports at Grand Island", "category": "Adventure", "duration": "Full Day", "cost": 3500, "bestTime": "Morning", "rating": 4.9 },
+    { "id": "act-goa-2", "name": "Sunset Cruise along Mandovi River", "category": "Relaxation", "duration": "2 Hours", "cost": 800, "bestTime": "Evening", "rating": 4.6 },
+    { "id": "act-goa-3", "name": "Explore Chapora Fort & Vagator Sunset", "category": "Photography", "duration": "3 Hours", "cost": 200, "bestTime": "Evening", "rating": 4.8 },
+    { "id": "act-goa-4", "name": "Dudhsagar Waterfalls Jeep Trek & Spice Plantation", "category": "Nature", "duration": "Full Day", "cost": 2200, "bestTime": "Morning", "rating": 4.85 },
+    { "id": "act-goa-5", "name": "Heritage Walk in Fontainhas Latin Quarter", "category": "Cultural", "duration": "2.5 Hours", "cost": 500, "bestTime": "Morning", "rating": 4.7 }
+  ],
+  "jaipur": [
+    { "id": "act-jpr-1", "name": "Elephant Ride & Guided Tour of Amber Fort", "category": "Cultural", "duration": "3.5 Hours", "cost": 1500, "bestTime": "Morning", "rating": 4.9 },
+    { "id": "act-jpr-2", "name": "Hot Air Balloon Flight over Pink City Forts", "category": "Adventure", "duration": "2 Hours", "cost": 12000, "bestTime": "Sunrise", "rating": 4.95 },
+    { "id": "act-jpr-3", "name": "Photography Tour of Hawa Mahal & City Palace", "category": "Photography", "duration": "3 Hours", "cost": 600, "bestTime": "Morning", "rating": 4.8 },
+    { "id": "act-jpr-4", "name": "Johari Bazaar Shopping & Block Printing Workshop", "category": "Shopping", "duration": "3 Hours", "cost": 1000, "bestTime": "Afternoon", "rating": 4.65 },
+    { "id": "act-jpr-5", "name": "Sunset Views at Nahargarh Fort Padao Rooftop", "category": "Relaxation", "duration": "2.5 Hours", "cost": 400, "bestTime": "Evening", "rating": 4.75 }
+  ],
+  "udaipur": [
+    { "id": "act-udp-1", "name": "Private Solar Boat Cruise on Lake Pichola", "category": "Romantic", "duration": "1.5 Hours", "cost": 1200, "bestTime": "Sunset", "rating": 4.95 },
+    { "id": "act-udp-2", "name": "City Palace Complex Heritage Tour", "category": "Cultural", "duration": "3 Hours", "cost": 500, "bestTime": "Morning", "rating": 4.85 },
+    { "id": "act-udp-3", "name": "Dharohar Folk Dance Show at Bagore Ki Haveli", "category": "Cultural", "duration": "1.5 Hours", "cost": 250, "bestTime": "Evening", "rating": 4.9 },
+    { "id": "act-udp-4", "name": "Ropeway Ride to Mansapurna Karni Mata Temple", "category": "Spiritual", "duration": "2 Hours", "cost": 300, "bestTime": "Sunset", "rating": 4.6 }
+  ],
+  "manali": [
+    { "id": "act-mnl-1", "name": "Paragliding & Zorbing in Solang Valley", "category": "Adventure", "duration": "Half Day", "cost": 3200, "bestTime": "Morning", "rating": 4.9 },
+    { "id": "act-mnl-2", "name": "Atal Tunnel Drive to Sissu Lahaul Valley", "category": "Nature", "duration": "Full Day", "cost": 2500, "bestTime": "Morning", "rating": 4.95 },
+    { "id": "act-mnl-3", "name": "Jogini Waterfalls Trek from Vashisht", "category": "Nature", "duration": "3 Hours", "cost": 0, "bestTime": "Morning", "rating": 4.8 },
+    { "id": "act-mnl-4", "name": "Cafes & Live Acoustic Music Walk in Old Manali", "category": "Food", "duration": "Evening", "cost": 800, "bestTime": "Evening", "rating": 4.7 }
+  ],
+  "mumbai": [
+    { "id": "act-mum-1", "name": "Ferry Ride to Elephanta Caves World Heritage", "category": "Cultural", "duration": "Half Day", "cost": 600, "bestTime": "Morning", "rating": 4.7 },
+    { "id": "act-mum-2", "name": "Evening Sunset Stroll at Marine Drive", "category": "Relaxation", "duration": "2 Hours", "cost": 0, "bestTime": "Evening", "rating": 4.9 },
+    { "id": "act-mum-3", "name": "Bollywood Studio Tour & Live Dance Show", "category": "Family", "duration": "4 Hours", "cost": 2800, "bestTime": "Afternoon", "rating": 4.6 }
+  ],
+  "delhi": [
+    { "id": "act-del-1", "name": "Rickshaw Food Trail in Old Delhi Chandni Chowk", "category": "Food", "duration": "3 Hours", "cost": 1200, "bestTime": "Afternoon", "rating": 4.9 },
+    { "id": "act-del-2", "name": "Heritage Walk of Qutub Minar & Mehrauli Archaeological Park", "category": "Historical Places", "duration": "3 Hours", "cost": 500, "bestTime": "Morning", "rating": 4.8 },
+    { "id": "act-del-3", "name": "Light & Sound Show at Red Fort", "category": "Cultural", "duration": "1.5 Hours", "cost": 300, "bestTime": "Evening", "rating": 4.6 }
+  ]
+}
