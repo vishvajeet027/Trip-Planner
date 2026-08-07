@@ -1,0 +1,28 @@
+{
+  "goa": [
+    { "name": "Goan Fish Curry Rice", "type": "Seafood Special", "avgCost": 350, "recommendedSpot": "Britto's Shack Baga", "isMustTry": true },
+    { "name": "Pork Vindaloo / Chicken Xacuti", "type": "Traditional Goan", "avgCost": 420, "recommendedSpot": "Mum's Kitchen Panaji", "isMustTry": true },
+    { "name": "Bebinca (7-Layered Goan Cake)", "type": "Dessert", "avgCost": 180, "recommendedSpot": "Infanteria Bakery Calangute", "isMustTry": true }
+  ],
+  "jaipur": [
+    { "name": "Dal Baati Churma Thali", "type": "Royal Rajasthani Thali", "avgCost": 450, "recommendedSpot": "Chokhi Dhani Village", "isMustTry": true },
+    { "name": "Laal Maas (Mutton Curry)", "type": "Royal Non-Veg", "avgCost": 550, "recommendedSpot": "Handi Restaurant MI Road", "isMustTry": true },
+    { "name": "Pyaaz Kachori & Ghevar", "type": "Street Snacks & Sweets", "avgCost": 120, "recommendedSpot": "Rawat Mishthan Bhandar", "isMustTry": true }
+  ],
+  "udaipur": [
+    { "name": "Royal Mewari Thali", "type": "Heritage Cuisine", "avgCost": 500, "recommendedSpot": "Traditional Khana Restaurant", "isMustTry": true },
+    { "name": "Kullad Coffee & Mirchi Bada", "type": "Lakeside Street Food", "avgCost": 90, "recommendedSpot": "Fateh Sagar Lake Stalls", "isMustTry": true }
+  ],
+  "manali": [
+    { "name": "Himachali Dham Thali", "type": "Traditional Pahadi", "avgCost": 300, "recommendedSpot": "Mayur Restaurant Mall Road", "isMustTry": true },
+    { "name": "Pan-Fried Trout Fish", "type": "Fresh River Trout", "avgCost": 600, "recommendedSpot": "Johnson's Cafe Old Manali", "isMustTry": true }
+  ],
+  "mumbai": [
+    { "name": "Vada Pav & Misal Pav", "type": "Street Snack", "avgCost": 80, "recommendedSpot": "Ashok Vada Pav Dadar", "isMustTry": true },
+    { "name": "Butter Garlic Crab & Bombay Duck", "type": "Coastal Seafood", "avgCost": 950, "recommendedSpot": "Trishna Fort", "isMustTry": true }
+  ],
+  "delhi": [
+    { "name": "Old Delhi Butter Chicken & Naan", "type": "North Indian Classic", "avgCost": 450, "recommendedSpot": "Moti Mahal Daryaganj", "isMustTry": true },
+    { "name": "Chole Bhature & Dahi Bhalla", "type": "Street Food Icon", "avgCost": 160, "recommendedSpot": "Sita Ram Diwan Chand Paharganj", "isMustTry": true }
+  ]
+}

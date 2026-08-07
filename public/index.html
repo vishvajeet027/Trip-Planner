@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizons - AI Smart Personalized Trip Planner</title>
+  <meta name="description" content="Explore, Dream, Discover. An AI-powered personalized travel planner that crafts your trip odyssey across India.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <i class="fas fa-circle-notch"></i>
+        <span>Horizons</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/index.html" class="nav-link active">Home</a></li>
+        <li><a href="/pages/ai-planner.html" class="nav-link">AI Planner</a></li>
+        <li><a href="/pages/explore.html" class="nav-link">Explore</a></li>
+        <li><a href="/pages/stay.html" class="nav-link">Stay</a></li>
+        <li><a href="/pages/my-trips.html" class="nav-link">My Trips</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="/pages/ai-planner.html" class="btn btn-outline-pill">
+          Launch AI
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header style="min-height: 80vh; display: flex; flex-direction: column; justify-content: space-between; padding: 6rem 0 4rem; position: relative;">
+    <div class="container">
+      <div class="animate-fade-up" style="max-width: 750px;">
+        <h1 style="font-size: 4.5rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 1.25rem;">
+          Explore, Dream, Discover
+        </h1>
+        <p style="font-size: 1.3rem; color: rgba(255,255,255,0.85); font-weight: 400; margin-bottom: 2.5rem;">
+          Begin Your AI Travel Odyssey Today
+        </p>
+
+        <a href="/pages/ai-planner.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; border-radius: 999px;">
+          Start Exploring
+        </a>
+      </div>
+    </div>
+
+    <!-- HORIZONS FLOATING SEARCH CAPSULE BAR -->
+    <div class="container" style="margin-top: 5rem;">
+      <div class="horizons-search-bar animate-fade-up">
+        
+        <div class="search-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="search-item-text">
+            <span>Destination</span>
+            <select id="quick-dest">
+              <option value="Goa">Goa, Beach Haven</option>
+              <option value="Jaipur">Jaipur, Pink Palace</option>
+              <option value="Udaipur">Udaipur, Lake City</option>
+              <option value="Manali">Manali, Mountains</option>
+              <option value="Leh-Ladakh">Ladakh, High Pass</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div class="search-item">
+          <i class="fas fa-calendar-alt"></i>
+          <div class="search-item-text">
+            <span>Duration</span>
+            <strong>05 Days Trip</strong>
+          </div>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div class="search-item">
+          <i class="fas fa-wallet"></i>
+          <div class="search-item-text">
+            <span>Est. Budget</span>
+            <strong>₹30,000 INR</strong>
+          </div>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div class="search-item">
+          <i class="fas fa-user"></i>
+          <div class="search-item-text">
+            <span>Travelers</span>
+            <strong>2 Persons</strong>
+          </div>
+        </div>
+
+        <a href="/pages/ai-planner.html" class="btn btn-white-pill">
+          Find
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- HOW AI WORKS SECTION -->
+  <section style="padding: 5rem 0; background: rgba(7, 18, 23, 0.7); backdrop-filter: blur(20px);">
+    <div class="container">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto 3.5rem;">
+        <span style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 0.5rem;">AI Algorithm Concept</span>
+        <h2 style="font-size: 2.5rem; margin-bottom: 0.75rem;">Intelligent Travel Matching</h2>
+        <p style="color: var(--text-muted);">
+          Our weighted Multi-Criteria Decision Analysis (MCDA) algorithm dynamically ranks destinations and stays according to user preferences.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+        <div class="glass-card" style="text-align: center;">
+          <i class="fas fa-sliders-h" style="font-size: 2rem; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
+          <h4>1. User Preferences</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">
+            Input budget, days, travel style, interest tags & group size.
+          </p>
+        </div>
+
+        <div class="glass-card" style="text-align: center;">
+          <i class="fas fa-calculator" style="font-size: 2rem; color: var(--accent-emerald); margin-bottom: 1rem;"></i>
+          <h4>2. Weighted Scoring</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">
+            Calculates 30% Interest + 25% Budget + 20% Style vectors.
+          </p>
+        </div>
+
+        <div class="glass-card" style="text-align: center;">
+          <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--accent-amber); margin-bottom: 1rem;"></i>
+          <h4>3. Budget Optimization</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">
+            Optimizes hotel & activity costs with intelligent cost alerts.
+          </p>
+        </div>
+
+        <div class="glass-card" style="text-align: center;">
+          <i class="fas fa-calendar-check" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+          <h4>4. Dynamic Itinerary</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">
+            Generates custom day-by-day morning, afternoon & evening plans.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+        <a href="/index.html" class="brand-logo">
+          <i class="fas fa-circle-notch"></i>
+          <span>Horizons</span>
+        </a>
+        <p style="font-size: 0.9rem; color: var(--text-subtle);">&copy; 2026 Horizons AI Smart Trip Planner. Built with HTML, CSS, JS & Node.js.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/ai-engine.js"></script>
+</body>
+</html>
